@@ -30,6 +30,8 @@ form.addEventListener('submit', (e) => {
   receiveForm.push(status)
   // booki = new Books(...receiveForm)
   // AddBookToList(booki)
+  let l = document.createElement('li');
+
 
   title = '';
   author = '';
@@ -56,6 +58,10 @@ Books.prototype.info = function(){
 
 function AddBookToList(something) {
   listBook.push(something);
+}
+
+function displayBook(){
+  
 }
 
 console.log('this is a test')
