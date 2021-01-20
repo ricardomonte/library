@@ -57,3 +57,5 @@ Books.prototype.info = function(){
 function AddBookToList(something) {
   listBook.push(something);
 }
+
+console.log('this is a test')
