@@ -7,6 +7,7 @@ let booki = '';
 let bookListUl = document.querySelector('#book-list ul');
 const form = document.forms['add-book'];
 let u = document.querySelector('#container-li')
+const btn = document.querySelector('#g-form')
 
 
 // remove item 
@@ -18,6 +19,8 @@ function remove(e){
     li.remove()
   }
 }
+
+btn.onclick = () => { displayForm()}
 
 
 
@@ -73,7 +76,14 @@ function displayBook(){
   buttondelete.classList.add('delete')
   l.appendChild(buttondelete);
   u.appendChild(l);
+}
 
+function displayForm() {
+  const disp = document.querySelector('#hide');
+  disp.classList.toggle('no-show')
+  // const attr = document.createAttribute('class');
+  // attr.value = 'visible';
+  // disp.setAttributeNode(attr)
 }
 
 console.log('this is a test')

@@ -14,18 +14,20 @@
       </div>
     </header>
     <button id="g-form" type="button">Add a new book!</button>
-    <form class="newbook" id="add-book">
-      <h2>Add new Book</h2><br>
-      <label for="title">Book Title:</label><br>
-      <input type="text" id="title" name="title"><br><br>
-      <label for="author">Author:</label><br>
-      <input type="text" id="author" name="author"><br><br>
-      <label for="pages">Number of pages:</label><br>
-      <input type="text" id="pages" name="pages"><br><br>
-      <label for="pages">Status:</label><br>
-      <input type="text" id="status" name="status"><br><br>
-      <button id='send' type="submit" value="submite">Add book</button>
-    </form> 
+    <div id="hide" class='no-show'>
+      <form class="newbook" id="add-book">
+        <h2>Add new Book</h2><br>
+        <label for="title">Book Title:</label><br>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br><br>
+        <label for="pages">Number of pages:</label><br>
+        <input type="text" id="pages" name="pages"><br><br>
+        <label for="pages">Status:</label><br>
+        <input type="text" id="status" name="status"><br><br>
+        <button id='send' type="submit" value="submite">Add book</button>
+      </form> 
+    </div>
     <div id="book-list">
       <h2>My books</h2>
       <ul id="container-li">
