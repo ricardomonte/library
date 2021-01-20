@@ -3,10 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
-  <h1>hello</h1>
-  <script src="library.js"></script>
+  <div id="wraper">
+    <header>
+      <div id="page-top">
+        <h1>Books</h1>
+      </div>
+    </header>
+    <button id="g-form" type="button">Add a new book!</button>
+    <form class="newbook" id="add-book">
+      <h2>Add new Book</h2><br>
+      <label for="title">Book Title:</label><br>
+      <input type="text" id="title" name="title"><br><br>
+      <label for="author">Author:</label><br>
+      <input type="text" id="author" name="author"><br><br>
+      <label for="pages">Number of pages:</label><br>
+      <input type="text" id="pages" name="pages"><br><br>
+      <label for="pages">Status:</label><br>
+      <input type="text" id="status" name="status"><br><br>
+      <button id='send' type="submit" value="submite">Add book</button>
+    </form> 
+    <div id="book-list">
+      <h2>My books</h2>
+      <ul>
+        <li>
+          <p class="book">ricardo's biography</p>
+          <p class="book">Ricardo</p>
+          <p class="book">3</p>
+          <p class="book">all ready read it</p>
+          <span class='delete'>Delete</span>
+        </li>
+      </ul>
+    </div>
+ 
+
+  </div>
+  <script src="./library.js"></script>
 </body>
 </html>
