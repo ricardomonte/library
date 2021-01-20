@@ -1,9 +1,14 @@
 let listBook = [];
+let receiveForm = [];
+let booki = '';
 
 // 
 
 let bookListUl = document.querySelector('#book-list ul');
 const form = document.forms['add-book'];
+let u = document.querySelector('#container-li')
+
+
 // remove item 
 bookListUl.addEventListener('click', remove);
 function remove(e){
@@ -28,10 +33,9 @@ form.addEventListener('submit', (e) => {
   receiveForm.push(author)
   receiveForm.push(pages)
   receiveForm.push(status)
-  // booki = new Books(...receiveForm)
-  // AddBookToList(booki)
-  let l = document.createElement('li');
-
+  booki = new Books(...receiveForm)
+  AddBookToList(booki)
+  displayBook()
 
   title = '';
   author = '';
@@ -40,6 +44,7 @@ form.addEventListener('submit', (e) => {
   console.log(title)
 
   form.reset()
+
 })
 
 function Books(title, author, pages, read) {
@@ -61,7 +66,14 @@ function AddBookToList(something) {
 }
 
 function displayBook(){
-  
+  let l = document.createElement('li');
+  let buttondelete = document.createElement('span');
+  listBook.forEach(book => l.innerHTML = '<p>Title: ' + book.title + '</p><p>Author: ' + book.author + '</p><p>Pages: ' + book.pages + '</p><p>Status: ' + book.read + '</p>')
+  buttondelete.textContent = 'Delete'
+  buttondelete.classList.add('delete')
+  l.appendChild(buttondelete);
+  u.appendChild(l);
+
 }
 
 console.log('this is a test')
