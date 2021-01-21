@@ -1,48 +1,10 @@
 const listBook = [];
-let receiveForm = [];
 let booki = '';
-const bookId = '';
-const btnStatus = '';
-const stat = '';
-const prev = '';
-
-//
 
 const bookListUl = document.querySelector('#book-list ul');
 const form = document.forms['add-book'];
 const u = document.querySelector('#container-li');
 const btn = document.querySelector('#g-form');
-
-
-// remove item
-bookListUl.addEventListener('click', (e) => {
-  remove(e);
-  changeStatus(e);
-});
-
-
-btn.onclick = () => { displayForm(); };
-
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  receiveForm = [];
-  let title = document.querySelector('#title').value;
-  let author = document.querySelector('#author').value;
-  let pages = document.querySelector('#pages').value;
-  let status = document.querySelector('#status').value;
-  displayForm();
-  displayBook(title, author, pages, status);
-  booki = new Books(title, author, pages, status);
-  AddBookToList(booki);
-  title = '';
-  author = '';
-  pages = '';
-  status = '';
-
-  form.reset();
-});
-
 
 function Books(title, author, pages, read) {
   if (read === 'allready readed') {
@@ -65,6 +27,36 @@ Books.prototype.info = function () {
 
 function AddBookToList(something) {
   listBook.push(something);
+}
+
+const changeStatus = (e) => {
+  if (e.target.id === 'changeble') {
+    const { target } = e;
+    if (target.textContent === 'Not readed') {
+      target.textContent = 'Allready readed';
+    } else {
+      target.textContent = 'Not readed';
+    }
+  }
+};
+
+function remove(e) {
+  const { target } = e;
+  if (target.className === 'delete') {
+    const li = target.parentElement;
+    li.remove();
+  }
+}
+
+function displayForm() {
+  const disp = document.querySelector('#hide');
+  if (disp.className === 'show') {
+    disp.classList.remove('show');
+    disp.classList.add('no-show');
+  } else {
+    disp.classList.remove('no-show');
+    disp.classList.add('show');
+  }
 }
 
 function displayBook(title, author, pages, read) {
@@ -91,32 +83,29 @@ function displayBook(title, author, pages, read) {
   u.appendChild(l);
 }
 
-const changeStatus = (e) => {
-  if (e.target.id === 'changeble') {
-    const { target } = e;
-    if (target.textContent === 'Not readed') {
-      target.textContent = 'Allready readed';
-    } else {
-      target.textContent = 'Not readed';
-    }
-  }
-};
+bookListUl.addEventListener('click', (e) => {
+  remove(e);
+  changeStatus(e);
+});
 
-function remove(e) {
-  const { target } = e;
-  if (target.className == 'delete') {
-    const li = target.parentElement;
-    li.remove();
-  }
-}
 
-function displayForm() {
-  const disp = document.querySelector('#hide');
-  if (disp.className == 'show') {
-    disp.classList.remove('show');
-    disp.classList.add('no-show');
-  } else {
-    disp.classList.remove('no-show');
-    disp.classList.add('show');
-  }
-}
+btn.onclick = () => { displayForm(); };
+
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let title = document.querySelector('#title').value;
+  let author = document.querySelector('#author').value;
+  let pages = document.querySelector('#pages').value;
+  let status = document.querySelector('#status').value;
+  displayForm();
+  displayBook(title, author, pages, status);
+  booki = new Books(title, author, pages, status);
+  AddBookToList(booki);
+  title = '';
+  author = '';
+  pages = '';
+  status = '';
+
+  form.reset();
+});
