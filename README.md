@@ -21,7 +21,7 @@ To get a local copy up and running follow these simple steps:
 
 - Go to the main page.
 - Press the "Code" button and get the repo link.
-- Clone it using git command "git clone &lt;link>".
+- Clone it using git command "git clone".
 
 ## :bust_in_silhouette: Author
 
