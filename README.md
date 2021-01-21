@@ -1,6 +1,6 @@
 # Library
 
-The library project was build as the first project of the JavaScript module from Microvers. Here the user can add a new book, deleted and marked as a allready readed or not readed.
+The library project was built as the first project of the JavaScript module from Microvers. Here the user can add a new book, deleted and marked as already read it or not read it.
 
 
 ![website screenshots](./assets/img/Screenshot.png)
@@ -13,7 +13,7 @@ The library project was build as the first project of the JavaScript module from
 
 ##  :red_circle: Live Demo:
 
-[Live demo]()
+[Live demo](https://ricardomonte.github.io/library/)
 
 ##  :construction_worker: Getting Started
 
@@ -21,7 +21,7 @@ To get a local copy up and running follow these simple steps:
 
 - Go to the main page.
 - Press the "Code" button and get the repo link.
-- Clone it using git command "git clone &lt;link>".
+- Clone it using git command "git clone".
 
 ## :bust_in_silhouette: Author
 
