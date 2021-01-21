@@ -1,6 +1,6 @@
 # Library
 
-The library project was build as the first project of the JavaScript module from Microvers. Here the user can add a new book, deleted and marked as a allready readed or not readed.
+The library project was built as the first project of the JavaScript module from Microvers. Here the user can add a new book, deleted and marked as already read it or not read it.
 
 
 ![website screenshots](./assets/img/Screenshot.png)
