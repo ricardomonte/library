@@ -13,7 +13,7 @@ The library project was build as the first project of the JavaScript module from
 
 ##  :red_circle: Live Demo:
 
-[Live demo]()
+[Live demo](https://ricardomonte.github.io/library/)
 
 ##  :construction_worker: Getting Started
 
