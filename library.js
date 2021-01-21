@@ -1,6 +1,10 @@
 let listBook = [];
 let receiveForm = [];
 let booki = '';
+let bookId = '';
+let btnStatus = "";
+let stat = '';
+let prev = '';
 
 // 
 
@@ -11,18 +15,13 @@ const btn = document.querySelector('#g-form')
 
 
 // remove item 
-bookListUl.addEventListener('click', remove);
-function remove(e){
-  let target = e.target;
-  if(target.className == 'delete') {
-    let li = target.parentElement;
-    li.remove()
-  }
-}
+bookListUl.addEventListener('click', (e) => {
+  remove(e)
+  changeStatus(e)
+});
+
 
 btn.onclick = () => { displayForm()}
-
-
 
 
 form.addEventListener('submit', (e) => {
@@ -32,25 +31,27 @@ form.addEventListener('submit', (e) => {
   let author = document.querySelector('#author').value;
   let pages = document.querySelector('#pages').value;
   let status = document.querySelector('#status').value;
-  receiveForm.push(title)
-  receiveForm.push(author)
-  receiveForm.push(pages)
-  receiveForm.push(status)
-  booki = new Books(...receiveForm)
+  displayForm()
+  displayBook(title, author, pages, status)
+  booki = new Books(title, author, pages, status)
   AddBookToList(booki)
-  displayBook()
-
   title = '';
   author = '';
   pages = '';
   status = '';
-  console.log(title)
 
   form.reset()
 
 })
 
+
 function Books(title, author, pages, read) {
+  if(read === 'allready readed'){
+    read = true
+  }
+  else {
+    read = false
+  }
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -68,22 +69,57 @@ function AddBookToList(something) {
   listBook.push(something);
 }
 
-function displayBook(){
+function displayBook(title, author, pages, read){
   let l = document.createElement('li');
-  let buttondelete = document.createElement('span');
-  listBook.forEach(book => l.innerHTML = '<p>Title: ' + book.title + '</p><p>Author: ' + book.author + '</p><p>Pages: ' + book.pages + '</p><p>Status: ' + book.read + '</p>')
+  let titl = document.createElement('p');
+  let auth = document.createElement('p');
+  let pag = document.createElement('p');
+  let rea = document.createElement('button');
+  let buttondelete = document.createElement('button');
+  titl.textContent = 'Title: ' + title
+  auth.textContent = 'Author: ' + author
+  pag.textContent = 'Nº of pages: ' + pages
+  rea.textContent = read  
   buttondelete.textContent = 'Delete'
   buttondelete.classList.add('delete')
+  rea.classList.add('changes')
+  rea.id = 'changeble'
+  l.classList.add('book')
+  l.appendChild(titl);
+  l.appendChild(auth);
+  l.appendChild(pag);
+  l.appendChild(rea);
   l.appendChild(buttondelete);
   u.appendChild(l);
 }
 
-function displayForm() {
-  const disp = document.querySelector('#hide');
-  disp.classList.toggle('no-show')
-  // const attr = document.createAttribute('class');
-  // attr.value = 'visible';
-  // disp.setAttributeNode(attr)
+const changeStatus = (e) => {
+  if (e.target.id === 'changeble') {
+    const target = e.target;
+    if (target.textContent === 'Not readed') {
+      target.textContent = 'Allready readed';
+    } else {
+      target.textContent = 'Not readed';
+    }
+  }
+};
+
+function remove(e){
+  let target = e.target;
+  if(target.className == 'delete') {
+    let li = target.parentElement;
+    li.remove()
+  }
 }
 
-console.log('this is a test')
+function displayForm() {
+  const disp = document.querySelector('#hide');
+  if(disp.className == 'show'){
+    disp.classList.remove('show')
+    disp.classList.add('no-show')
+  }
+  else{
+    disp.classList.remove('no-show')
+    disp.classList.add('show')
+  }
+}
