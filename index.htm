@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/stylesheet/normalize.css">
+  <link rel="stylesheet" href="./assets/stylesheet/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="wraper">
+    <header>
+      <div class='container-title' id="page-top">
+        <h1>Library</h1>
+        <h3>your library...</h3>
+        <button class='button-add' id="g-form" type="button">Add a new book!</button>
+      </div>
+    </header>
+    
+    <div id="hide" class='no-show'>
+      <form class="newbook" id="add-book">
+        <h2>Add new Book</h2><br>
+        <label for="title">Book Title:</label><br>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br><br>
+        <label for="pages">Number of pages:</label><br>
+        <input type="text" id="pages" name="pages"><br><br>
+        <label for="status">Status:</label><br>
+        <select id='status'>
+          <option value="Allready readed">Allready readed</option>
+          <option value="Not readed">Not readed</option>
+        </select><br><br>
+        <button id='send' type="submit" value="submite">Add book</button>
+        <button type="reset">Reset</button>
+      </form> 
+    </div>
+    <div class="library" id="book-list">
+      <h2>My books</h2>
+      <ul class= 'shelf'id="container-li">
+      </ul>
+    </div>
+ 
+
+  </div>
+  <script src="./assets/javascript/library.js"></script>
+</body>
+</html>
